@@ -1,5 +1,5 @@
 # ocrExcel
-离线ocr识别为excel文件,基于PaddleOcr.
+离线ocr识别为excel文件,基于[PaddleOCR-json](https://github.com/hiroi-sora/PaddleOCR-json).
 仅支持windows
 
 # 使用方式
