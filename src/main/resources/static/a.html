@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<link href="https://cdn.staticfile.net/layui/2.9.4/css/layui.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8"/>
+    <title>图片转Excel</title>
+</head>
+<body>
+<div class="layui-card layui-panel" style="left:3%;top:20px;width:95%;height:100%">
+    <blockquote class="layui-elem-quote layui-text">
+        <h2>图片转Excel</h2>
+    </blockquote>
+    <div class="layui-form-item">
+        <div class="layui-input-group">
+            <div class="layui-btn-container">
+                <button type="button" class="layui-btn layui-btn-normal" id="initDoc-choose">选择文件</button>
+                <button type="button" class="layui-btn layui-btn-primary layui-border-blue" id="initDocBtn">开始</button>
+            </div>
+        </div>
+    </div>
+    <a href="https://catocr.com/#/">图片文字识别:https://catocr.com/#/</a>
+</div>
+</body>
+<script src="https://cdn.staticfile.net/layui/2.9.4/layui.js"></script>
+<script>
+    const baseUrl = document.location.href.substr(0, document.location.href.indexOf('/static'));
+
+    layui.use(function(){
+        var upload = layui.upload;
+        // 渲染
+        upload.render({
+            elem: '#initDoc-choose',
+            url: baseUrl + '/orc/ocrExcel', // 此处配置你自己的上传接口即可
+            auto: false,
+            // multiple: true,
+            bindAction: '#initDocBtn',
+            before: function (obj) { // obj 参数同 choose
+                layer.load(); // 上传 loading
+            },
+            done: function(res){
+                layer.closeAll('loading'); // 关闭loading
+                layer.msg('处理完成,即将开始下载文件');
+                window.location.href=baseUrl+"/orc/download";
+            },
+            error: function (index, upload) {
+                layer.closeAll('loading'); // 关闭loading
+                alert("error:" + upload.responseText)
+            }
+        });
+    });
+</script>
+</html>
