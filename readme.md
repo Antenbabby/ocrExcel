@@ -6,7 +6,7 @@
 
 ## 直接使用
 - 从release中下载点击start.bat启动
-## 2.手动打包
+## 手动打包
 - 打包 maven clean package
 - 打包后放入ocrExcelUtil文件夹中
 - 点击start.bat启动
