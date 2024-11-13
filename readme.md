@@ -10,3 +10,7 @@
 - 打包 maven clean package
 - 打包后放入ocrExcelUtil文件夹中
 - 点击start.bat启动
+
+# 识别效果
+
+![image](test.png)

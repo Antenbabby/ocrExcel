@@ -15,18 +15,26 @@
         <div class="layui-input-group">
             <div class="layui-btn-container">
                 <button type="button" class="layui-btn layui-btn-normal" id="initDoc-choose">选择文件</button>
-                <button type="button" class="layui-btn layui-btn-primary layui-border-blue" id="initDocBtn">开始</button>
+                <button type="button" class="layui-btn layui-btn-primary layui-border-blue" id="initDocBtn">开始
+                </button>
             </div>
         </div>
     </div>
-    <a href="https://catocr.com/#/">图片文字识别:https://catocr.com/#/</a>
+    <blockquote class="layui-elem-quote layui-text">
+        <h2>图片文字识别 </h2>
+    </blockquote>
+    <div class="layui-form-item">
+        图片文字识别:<br>
+        <a href="https://catocr.com/#/">https://catocr.com/#/</a>
+    </div>
+
 </div>
 </body>
 <script src="https://cdn.staticfile.net/layui/2.9.4/layui.js"></script>
 <script>
     const baseUrl = document.location.href.substr(0, document.location.href.indexOf('/static'));
 
-    layui.use(function(){
+    layui.use(function () {
         var upload = layui.upload;
         // 渲染
         upload.render({
@@ -38,10 +46,10 @@
             before: function (obj) { // obj 参数同 choose
                 layer.load(); // 上传 loading
             },
-            done: function(res){
+            done: function (res) {
                 layer.closeAll('loading'); // 关闭loading
                 layer.msg('处理完成,即将开始下载文件');
-                window.location.href=baseUrl+"/orc/download";
+                window.location.href = baseUrl + "/orc/download";
             },
             error: function (index, upload) {
                 layer.closeAll('loading'); // 关闭loading
